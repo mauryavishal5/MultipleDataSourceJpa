@@ -1,0 +1,42 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+}
+plugins {
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+}
+
+group 'com.spring-boot.examples'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.4.1212.jre7'
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+}
+
+task listJars << {
+    configurations.compile.each { File file -> println file.name }
+}
+springBoot {
+    mainClass = "com.multipleJpaExample.Application"
+}
