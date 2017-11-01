@@ -29,13 +29,5 @@ curl -X POST \
 	"nationality":"INDIAN"
 }'
 curl -X GET \
-  http://localhost:8181/employee/1/nationality/INDIAN \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
-  -d '{
-	"firstName":"Vishal",
-	"lastName":"Maurya",
-	"salary":1000.00,
-	"nationality":"INDIAN"
-}'
+  http://localhost:8181/employee/1/nationality/INDIAN
 ```
